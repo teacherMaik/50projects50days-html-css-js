@@ -12,12 +12,38 @@
   font-family: var(--roboto);
 }
 
+h1, h2, h3 {
+  font-family: var(--kanit);
+}
 body {
-  width: 100vw;
-  overflow-x: hidden;
 }
 
-section, header {
+.navbar-brand {
+  width: 42px;
+  color: white;
+}
+
+.navbar-brand img {
+  width: 100%;
+  color: white;
+}
+
+.btn {
+  border-radius: 42px;
+}
+
+.drape {
+  height: 0%;
+  width: 100%;
+  
+}
+
+.drape.active {
+  height: 100%;
+  -webkit-transition: all 700ms ease-in;
+}
+
+/*section, header {
   position: relative;
   height: 100vh;
   display: flex;
@@ -88,26 +114,6 @@ header .nav-button:hover {
   padding: 0 1.3rem;
 }
 
-.card.card-1 {
-  background: url('img/50-projects-img1.jpg') no-repeat center/cover;
-}
-
-.card.card-2 {
-  background: url('img/50-projects-img2.jpg') no-repeat center/cover;
-}
-
-.card.card-3 {
-  background: url('img/50-projects-img3.jpg') no-repeat center/cover;
-}
-
-.card.card-4 {
-  background: url('img/50-projects-img4.jpg') no-repeat center/cover;
-}
-
-.card.card-5 {
-  background: url('img/50-projects-img5.jpg') no-repeat center/cover;
-}
-
 .card.active {
   flex: 5;
   cursor: default;
@@ -117,4 +123,8 @@ header .nav-button:hover {
   opacity: 1;
   transition: opacity 0.3s ease-in 0.7s;
 }
+
+.progress-steps {
+
+}*/
 
