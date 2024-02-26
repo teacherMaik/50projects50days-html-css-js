@@ -16,6 +16,7 @@ h1, h2, h3 {
   font-family: var(--kanit);
 }
 body {
+
 }
 
 .navbar-brand {
@@ -28,12 +29,29 @@ body {
   color: white;
 }
 
+/* Specify Border-radius to override Bootstrap */
 .btn {
   border-radius: 42px;
 }
 
-/* Project 1 - Expanding Cards */
+/* Specify Background-color and :hover so opacity transition works over Bootstrap */
+.project-button {
+  background-color: #212529;
+  opacity: 0;
+}
 
+.project-button.show {
+  opacity: 1;
+  background-color: #212529;
+  transition: opacity ease-in 0.42s;
+  
+}
+
+.project-button.show:hover {
+  background-color: #424649;
+}
+
+/* Project 1 - Expanding Cards */
 #p1-pane-1 {
   background: url('img/50-projects-img1.jpg') no-repeat center center/cover;
 }
@@ -60,7 +78,7 @@ body {
   border-radius: 42px;
   -webkit-transition: all 700ms ease-in;
 }
-.p1-pane.active {
+.p1-pane.show {
   cursor: default;  
   flex: 5;
 }
@@ -70,9 +88,55 @@ body {
   opacity: 0;
 }
 
-.p1-pane.active h3 {
+.p1-pane.show h3 {
   opacity: 1;
   transition: opacity 0.42s ease-in 0.63s;
 }
-  
 
+/* Project 2 - Progress Steps */
+.progress-step {
+  width: 10%;
+  aspect-ratio: 1/1;
+  border: 3px solid;
+  border-color: #ccc;
+  color: #ccc;
+  cursor: default;
+}
+
+.progress-step.show {
+  border-color: #0dcaf0;
+  color: #212529;
+  transition: 0.42s ease-in;
+  transition-delay: 0.4s;
+}
+
+#progress-steps::before {
+  content:'';
+  position: absolute;
+  top: 50%;
+  display: block;
+  background-color: #ccc !important;
+  width: 100%;
+  height: 3px;
+  z-index: -1;
+  
+}
+
+#progress-line {
+  width: 0%;
+  height: 3px;
+  z-index: -1;
+  transition: 0.42s ease-in;
+}
+
+.progress-button {
+  cursor: pointer;
+  transition: 0.42s ease-in;
+}
+
+.progress-button.not-show {
+  background-color: #ccc;
+  border: #ccc;
+  cursor: default;
+  transition: 0.42s ease-in;
+}
