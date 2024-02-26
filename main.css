@@ -32,99 +32,47 @@ body {
   border-radius: 42px;
 }
 
-.drape {
-  height: 0%;
-  width: 100%;
-  
+/* Project 1 - Expanding Cards */
+
+#p1-pane-1 {
+  background: url('img/50-projects-img1.jpg') no-repeat center center/cover;
 }
 
-.drape.active {
-  height: 100%;
-  -webkit-transition: all 700ms ease-in;
+#p1-pane-2 {
+  background: url('img/50-projects-img2.jpg') no-repeat center center/cover;
 }
 
-/*section, header {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
+#p1-pane-3 {
+  background: url('img/50-projects-img3.jpg') no-repeat center center/cover;
 }
 
-.intro {
-  position: relative;
-  font-family: var(--kanit);
-  font-size: 42px;
-  font-weight: 600;
+#p1-pane-4 {
+  background: url('img/50-projects-img4.jpg') no-repeat center center/cover;
 }
 
-.header .nav-container {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
+#p1-pane-5 {
+  background: url('img/50-projects-img5.jpg') no-repeat center center/cover;
 }
 
-header .nav-button {
-  padding: 0.7rem;
-  background-color: darkslategray;
-  color: white;
-  border-radius: 50px;
-  border: 2px solid darkslategray;
-  text-align: center;
-  text-decoration: none;
-}
-
-header .nav-button:hover {
-  background-color: white;
-  color: darkslategray;
-  font-weight: 500;
-}
-
-.expanding-cards {
-  position: relative;
-  width: 90vw;
-  height: 80%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-.card {
-  position: relative;
-  border-radius: 42px;
-  height: 100%;
+.p1-pane {
   cursor: pointer;
   flex: 0.5;
+  border-radius: 42px;
   -webkit-transition: all 700ms ease-in;
 }
-
-.card h3 {
-  position: absolute;
-  bottom: 14px;
-  left: 42px;
-  font-size: 42px;
-  font-family: var(--kanit);
-  opacity: 0;
-  background-color: white;
-  color: darkslategray;
-  border-radius: 42px;
-  padding: 0 1.3rem;
-}
-
-.card.active {
+.p1-pane.active {
+  cursor: default;  
   flex: 5;
-  cursor: default;
 }
 
-.card.active h3 {
+.p1-pane h3 {
+  border-radius: 0 42px 0 0;
+  opacity: 0;
+}
+
+.p1-pane.active h3 {
   opacity: 1;
-  transition: opacity 0.3s ease-in 0.7s;
+  transition: opacity 0.42s ease-in 0.63s;
 }
-
-.progress-steps {
-
-}*/
+  
 
