@@ -15,8 +15,9 @@
 h1, h2, h3 {
   font-family: var(--kanit);
 }
-body {
 
+body {
+  overflow-x: hidden;
 }
 
 .navbar-brand {
@@ -119,7 +120,6 @@ body {
   width: 100%;
   height: 3px;
   z-index: -1;
-  
 }
 
 #progress-line {
@@ -139,4 +139,117 @@ body {
   border: #ccc;
   cursor: default;
   transition: 0.42s ease-in;
+}
+
+/*Project 3 - Rotating Nav Animation */
+section #p3 {
+  overflow-x: hidden;
+}
+#p3 .content-container {
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+}
+
+#p3 .content-container.show-nav {
+  transform: rotate(-20deg);
+}
+
+#p3 .content-container #img {
+  width: 100%;
+  height: 42%;
+}
+
+#p3 .content-container p {
+  text-align: justify;
+}
+
+#p3 .content-container .circle-container {
+  top: -105px;
+  left: -105px;
+}
+
+#p3 .content-container .circle-container .circle {
+  width: 210px;
+  height: 210px;
+  transition: transform 0.5s linear;
+}
+
+#p3 .content-container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+#p3 .content-container .circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+#p3 .content-container .circle button:focus {
+  outline: none;
+}
+
+#p3 .content-container .circle button#open {
+  left: 60%;
+}
+
+#p3 .content-container .circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+#p3 .content-container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+#p3 nav {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+#p3 nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+#p3 nav ul li {
+  text-transform: uppercase;
+  color: blue;
+  margin: 40px 0;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease-in;
+}
+
+#p3 nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+#p3 nav ul li + li {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+
+#p3 nav ul li + li + li {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+
+#p3 nav a, i {
+  color: white;
+  text-decoration: none;
+}
+
+#p3 nav a:hover {
+  color: white;
+  font-weight: bold;
 }
