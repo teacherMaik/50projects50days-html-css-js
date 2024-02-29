@@ -30,6 +30,10 @@ body {
   color: white;
 }
 
+#navbar-search:hover {
+  color: #212529 !important;
+}
+
 /* Specify Border-radius to override Bootstrap */
 .btn {
   border-radius: 42px;
@@ -223,7 +227,6 @@ section #p3 {
 
 #p3 nav ul li {
   text-transform: uppercase;
-  color: blue;
   margin: 40px 0;
   transform: translateX(-100%);
   transition: transform 0.4s ease-in;
@@ -253,3 +256,53 @@ section #p3 {
   color: white;
   font-weight: bold;
 }
+
+/* Project 4 - Hidden Search Bar */
+#p4 .search-button-container {
+  width: 42px;
+  height: 42px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+#p4 input {
+  height: 42px;
+  border: 0;
+  width: 0;
+  transition: 0.3s ease;
+}
+
+#p4 input::placeholder {
+  color: #5bc0de; /* Bootstrap info */
+  opacity: 1; /* Firefox */
+}
+
+#p4 input::-ms-input-placeholder { /* Edge 12 -18 */
+  color: #5bc0de; /* Bootstrap info */
+}
+
+#p4 input:focus, #p4 .search-button-container:focus {
+    outline: none;
+}
+
+/* Project 5 - Blurry loading */
+#p5 .background-img {
+  background: url('/img/50-projects-img4.jpg') no-repeat center center/cover;
+
+  /* Add the blur effect */
+  filter: blur(14px);
+  /*transition: 3s ease;*/
+}
+
+#p5 .loading-percent {
+  color: white;
+  font-size: 42px;
+  font-family: var(--kanit);
+  font-weight: 700;
+  opacity: 1;
+  /*transition: 3s ease;*/
+}
+
+
+
+

@@ -214,3 +214,68 @@ open.addEventListener('click', () => container.classList.add('show-nav'))
 close.addEventListener('click', () => container.classList.remove('show-nav'))
 
 
+// Project 4 - This time I add the styling here with javascript rather than adding a Class
+const p4SearchButton = document.querySelector('#p4 .search-button-container');
+const p4Input = document.querySelector('#p4 input');
+
+p4SearchButton.addEventListener('click', () => {
+
+  p4SearchButton.style.transform ="translateX(162px)";
+  p4Input.style.width = "300px";
+});
+
+// Project 5
+const p5LoadingPercent = document.querySelector('#p5 .loading-percent');
+const p5BgImage = document.querySelector('#p5  .background-img');
+
+
+// My solution
+/*
+const displayLoadPercent = async () => {
+
+  let load = 0;
+
+  while (load <= 100) {
+
+    p5LoadingPercent.innerHTML = load + "%";
+    load++;
+    await sleep(13);
+  }
+}
+
+window.addEventListener('scroll', function() {
+
+  if (isInViewport(p5LoadingPercent)) {
+
+    async() => {await sleep(200)};
+
+    p5BgImage.style.filter = "blur(0px)";
+    p5LoadingPercent.style.opacity = "0";
+  
+    displayLoadPercent();
+  }
+});*/
+
+// Author Traversy Solution
+
+let load = 0
+
+let int = setInterval(blurring, 30)
+
+function blurring() {
+  load++
+
+  if (load > 99) {
+    clearInterval(int)
+  }
+
+  p5LoadingPercent.innerText = `${load}%`
+  p5LoadingPercent.style.opacity = scale(load, 0, 100, 1, 0)
+  p5BgImage.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+}
+
+// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+const scale = (num, in_min, in_max, out_min, out_max) => {
+  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+}
+
