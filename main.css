@@ -3,6 +3,9 @@
 :root {
   --kanit: 'Kanit', sans-serif;
   --roboto: 'Roboto', sans-serif;
+
+  --darkGrayTransparent: rgba(33, 37, 41, 0.7);
+  --whiteTransparent: rgba(255, 255, 255, 0.7);
 }
 
 * {
@@ -335,16 +338,49 @@ section#p6 {
   height: 200vh;
 }
 
-#p6 .scroll-card {
-  height: 10%;
-}
-
 #p6 .card-container {
   height: 10%;
 }
-#p6 .card-right {
-  left: 80%;
+
+#p6 .scroll-card {
   height: 100%;
+}
+
+#p6 .card-right {
+  left: 100%;
+  transition: 1s ease;
+}
+
+#p6 .card-left {
+  right: 100%;
+  transition: 1s ease;
+}
+
+/* Project 7 - Split Landing Pages */
+#p7 #landing-left {
+  flex: 3;
+  background: url('img/50-projects-img2.jpg') no-repeat center center/cover;
+  transition: 0.84s ease;
+}
+
+#p7 #landing-left h1 {
+  padding: 1rem 2rem;
+  background-color: var(--darkGrayTransparent);
+  color: white;
+  border-radius: 42px;
+}
+
+#p7 #landing-right {
+  flex: 1;
+  background: url('img/50-projects-img4.jpg') no-repeat center center/cover;
+  transition: 0.84s ease;
+}
+
+#p7 #landing-right h1 {
+  padding: 1rem 2rem;
+  background-color: var(--whiteTransparent);
+  color: #212529;
+  border-radius: 42px;
 }
 
 

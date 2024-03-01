@@ -34,6 +34,13 @@ function isInViewport(el) {
   );
 }
 
+function enterVerticalViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 && (rect.bottom <= window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
 const displayButtons = async (buttons) => {
 
   let i = 0
@@ -205,13 +212,13 @@ function updateStep() {
 }
 
 // Project 3
-const open = document.getElementById('open')
-const close = document.getElementById('close')
-const container = document.querySelector('.content-container')
+const p3Open = document.getElementById('open')
+const p3Close = document.getElementById('close')
+const p3Container = document.querySelector('.content-container')
 
-open.addEventListener('click', () => container.classList.add('show-nav'))
+p3Open.addEventListener('click', () => p3Container.classList.add('show-nav'))
 
-close.addEventListener('click', () => container.classList.remove('show-nav'))
+p3Close.addEventListener('click', () => p3Container.classList.remove('show-nav'))
 
 
 // Project 4 - This time I add the styling here with javascript rather than adding a Class
@@ -347,4 +354,67 @@ window.addEventListener('scroll', function() {
 })*/
 
 // Project 6
+const p6Container = document.querySelector('section#p6');
+const cardContainer = document.querySelector('#p6 .card-container');
+const cards = document.querySelectorAll('#p6 .scroll-card');
+const card1 = document.querySelector('#scroll-card-1');
 
+window.addEventListener('scroll', function() {
+
+  cards.forEach(card  => {
+
+    if (card.getBoundingClientRect().top < 542) {
+
+      switch (card.classList.contains('card-right')) {
+
+        case true:
+          card.style.left = "37.5%";
+          break;
+
+        case false:
+          card.style.right = "37.5%";
+          break;
+
+        default:
+          return;
+      };
+    };
+  });
+
+  if (p6Container.getBoundingClientRect().top > 700 || p6Container.getBoundingClientRect().top < -1300) {
+
+    cards.forEach(card  => {
+      switch (card.classList.contains('card-right')) {
+
+        case true:
+          card.style.left = "100%";
+          break;
+
+        case false:
+          card.style.right = "100%";
+          break;
+
+        default:
+          return;
+      };
+    });
+  };
+});
+
+// Project 7
+const p7LandingLeft = document.querySelector('#p7 #landing-left');
+const p7LandingRight = document.querySelector('#p7 #landing-right');
+
+p7LandingLeft.addEventListener('mouseover', () => {
+
+  console.log("hovering left landing");
+  p7LandingLeft.style.flex = "3";
+  p7LandingRight.style.flex = "1";
+})
+
+p7LandingRight.addEventListener('mouseover', () => {
+
+  console.log("hovering right landing");
+  p7LandingLeft.style.flex = "1";
+  p7LandingRight.style.flex = "3";
+})
