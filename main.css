@@ -383,10 +383,47 @@ section#p6 {
   border-radius: 42px;
 }
 
+/* Project 8 - Wavy Form Input */
+form .maik-form-control {
+  margin-bottom: 2rem;
+}
 
+.maik-form-control input {
+  height: 42px;
+}
 
+.maik-form-control label {
+  top: 21%;
+  left: 3%;
+}
 
+.maik-form-control label span {
+  display: inline-block;
+  font-size: 18px;
+  min-width: 5px;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
 
+.maik-form-control input:focus + label span,
+.maik-form-control input:valid + label span {
+  color: #ffc107;
+  transform: translateY(-36px);
+}
+
+.maik-form-control p {
+  padding: 1rem 0;
+  color: white;
+  text-align: left;
+}
+
+.maik-form-control p a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.maik-form-control p a:hover {
+  color: #0dcaf0;
+}
 
 
 
