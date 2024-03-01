@@ -291,17 +291,65 @@ section #p3 {
 
   /* Add the blur effect */
   filter: blur(14px);
-  /*transition: 3s ease;*/
+  /* transition: 3s ease; //Only for my solution*/
 }
 
-#p5 .loading-percent {
+#p5 .button-init {
   color: white;
-  font-size: 42px;
+  background-color: #212529;
+  padding: 0.3rem 1rem;
+  border: 2px solid #212529;
+  border-radius: 42px;
+  font-size: 21px;
   font-family: var(--kanit);
   font-weight: 700;
   opacity: 1;
-  /*transition: 3s ease;*/
+  cursor: pointer;
+  visibility: visible;
+  /* transition: 3s ease; // Only for my Soltuion*/
 }
+
+#p5 .button-init:hover {
+  color:#212529;
+  background-color: white;
+}
+
+#p5 .button-clicked, #p5 .button-clicked:hover {
+  color: white;
+  padding: 0.3rem 1rem;
+  font-family: var(--kanit);
+  font-weight: 700;
+  opacity: 1;
+  font-size: 42px;
+  background: transparent;
+  border: 2px solid transparent;
+  cursor: default;
+}
+
+#p5 .button-finished {
+  visibility: hidden;
+}
+
+/* Project 6 - Scroll Slide-in animation */
+section#p6 {
+  height: 200vh;
+}
+
+#p6 .scroll-card {
+  height: 10%;
+}
+
+#p6 .card-container {
+  height: 10%;
+}
+#p6 .card-right {
+  left: 80%;
+  height: 100%;
+}
+
+
+
+
 
 
 

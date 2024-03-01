@@ -218,15 +218,72 @@ close.addEventListener('click', () => container.classList.remove('show-nav'))
 const p4SearchButton = document.querySelector('#p4 .search-button-container');
 const p4Input = document.querySelector('#p4 input');
 
+let searchButtonOpen = false;
+
 p4SearchButton.addEventListener('click', () => {
 
-  p4SearchButton.style.transform ="translateX(162px)";
-  p4Input.style.width = "300px";
+  if (searchButtonOpen == false) {
+
+    p4SearchButton.style.transform ="translateX(162px)";
+    p4Input.style.width = "300px";
+    searchButtonOpen = true;
+  } else if (searchButtonOpen == true) {
+
+    p4SearchButton.style.transform ="translateX(0px)";
+    p4Input.style.width = "0px";
+    searchButtonOpen = false;
+  }
 });
 
 // Project 5
-const p5LoadingPercent = document.querySelector('#p5 .loading-percent');
+const p5LoadingPercent = document.querySelector('#p5 #multi-button');
 const p5BgImage = document.querySelector('#p5  .background-img');
+
+let load = 0;
+
+// Visible on webpage has button to click to unblur image with loading percent and when scrolled out of window resets
+p5LoadingPercent.addEventListener('click', function() {
+
+  p5LoadingPercent.classList.remove('button-init');
+  p5LoadingPercent.classList.add('button-clicked');
+  let int = setInterval(blurring, 30);
+
+  p5LoadingPercent.classList.add('clicked');
+
+  function blurring() {
+    load++
+
+    if (load > 99) {
+      clearInterval(int)
+
+      p5LoadingPercent.classList.remove('button-clicked');
+      p5LoadingPercent.classList.add('button-finished');
+    }
+
+    p5LoadingPercent.innerText = `${load}%`
+    p5LoadingPercent.style.opacity = scale(load, 0, 100, 1, 0)
+    p5BgImage.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+  }
+
+  // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+  const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+  }
+});
+
+window.addEventListener('scroll', () => {
+
+  if (!isInViewport(p5LoadingPercent)) {
+
+    load = 0;
+    p5LoadingPercent.classList.remove('button-finished');
+    p5LoadingPercent.classList.add('button-init');
+    p5LoadingPercent.innerText = "Click to load";
+    p5LoadingPercent.style.opacity = "1";
+    p5BgImage.style.filter = "blur(14px)";
+  }
+});
+
 
 
 // My solution
@@ -256,26 +313,38 @@ window.addEventListener('scroll', function() {
   }
 });*/
 
-// Author Traversy Solution
+// Author Traversy Solution to trigger when percentage div enters viewport
+/* window.addEventListener('scroll', function() {
 
-let load = 0
+  if (isInViewport(p5LoadingPercent)) {
 
-let int = setInterval(blurring, 30)
+    async () => {await sleep(200)};
+    let int = setInterval(blurring, 30);
 
-function blurring() {
-  load++
+    function blurring() {
+      load++
+  
+      if (load > 99) {
+        clearInterval(int)
+      }
+  
+      p5LoadingPercent.innerText = `${load}%`
+      p5LoadingPercent.style.opacity = scale(load, 0, 100, 1, 0)
+      p5BgImage.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
+    }
+  
+    // https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
+    const scale = (num, in_min, in_max, out_min, out_max) => {
+      return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+    }
+  } else if (!isInViewport(p5LoadingPercent)) {
 
-  if (load > 99) {
-    clearInterval(int)
+    load = 0;
+    p5LoadingPercent.innerText = "0%";
+    p5LoadingPercent.style.opacity = "1";
+    p5BgImage.style.filter = "blur(14px)";
   }
+})*/
 
-  p5LoadingPercent.innerText = `${load}%`
-  p5LoadingPercent.style.opacity = scale(load, 0, 100, 1, 0)
-  p5BgImage.style.filter = `blur(${scale(load, 0, 100, 30, 0)}px)`
-}
-
-// https://stackoverflow.com/questions/10756313/javascript-jquery-map-a-range-of-numbers-to-another-range-of-numbers
-const scale = (num, in_min, in_max, out_min, out_max) => {
-  return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
-}
+// Project 6
 
