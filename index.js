@@ -427,3 +427,10 @@ labels.forEach(label => {
     .map((letter, idx) => `<span style="transition-delay:${idx * 50}ms">${letter}</span>`)
     .join('');
 })
+
+// Project 9 
+
+const sound1 = {
+  "name": "sound-1",
+  "audio": new Audio
+}
