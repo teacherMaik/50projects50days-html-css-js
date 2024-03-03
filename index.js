@@ -430,7 +430,71 @@ labels.forEach(label => {
 
 // Project 9 
 
-const sound1 = {
-  "name": "sound-1",
-  "audio": new Audio
+const soundApplause = {
+  "name": "sound1",
+  "audio": new Audio("sounds/sound-board_sounds_applause.mp3")
 }
+const soundBoo = {
+  "name": "sound2",
+  "audio": new Audio("sounds/sound-board_sounds_boo.mp3")
+}
+const soundGasp = {
+  "name": "sound3",
+  "audio": new Audio("sounds/sound-board_sounds_gasp.mp3")
+}
+const soundTada = {
+  "name": "sound4",
+  "audio": new Audio("sounds/sound-board_sounds_tada.mp3")
+}
+const soundVictory = {
+  "name": "sound5",
+  "audio": new Audio("sounds/sound-board_sounds_victory.mp3")
+}
+const soundWrong = {
+  "name": "sound6",
+  "audio": new Audio("sounds/sound-board_sounds_wrong.mp3")
+}
+
+const p9Sounds = [soundApplause, soundBoo, soundGasp, soundTada, soundVictory, soundWrong];
+
+const p9SoundButtons = document.querySelectorAll('#p9 .sound-button');
+
+p9SoundButtons.forEach(soundButton => {
+
+  soundButton.addEventListener('click', (e) => {
+
+    p9Sounds.forEach(sound => {
+
+      sound.audio.pause();
+      if (e.target.id == sound.name) {
+
+        sound.audio.play();
+      }
+    });
+  });
+});
+
+// Project 10
+const dadJoke = document.getElementById('dad-joke');
+const dadJokeBtn = document.getElementById('new-joke');
+
+dadJokeBtn.addEventListener('click', generateJoke);
+
+generateJoke()
+
+// USING ASYNC/AWAIT
+async function generateJoke() {
+  const config = {
+    headers: {
+      Accept: 'application/json',
+    },
+  }
+
+  const res = await fetch('https://icanhazdadjoke.com', config)
+
+  const data = await res.json()
+
+  dadJoke.innerHTML = data.joke
+}
+
+
