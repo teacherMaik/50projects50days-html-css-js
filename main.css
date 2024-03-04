@@ -426,7 +426,14 @@ form .maik-form-control {
 }
 
 /* Project 10 - Dad Jokes */
-/* No CSS needed...*/
+#p10 #dad-jokes-container a {
+  color: white;
+}
 
+#p10 #dad-jokes-container a:hover {
+  color: #dc3545;
+}
 
-
+/* Project 11 - Event Key Codes */
+#p11-intro-container {
+}

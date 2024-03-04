@@ -491,10 +491,53 @@ async function generateJoke() {
   }
 
   const res = await fetch('https://icanhazdadjoke.com', config)
+  console.log(res);
 
   const data = await res.json()
 
   dadJoke.innerHTML = data.joke
 }
+
+// Project 11
+const p11CenterContainer = document.querySelector('#p11-center-container');
+const p11StartButton = document.querySelector('#p11-start');
+const p11IntroContainer = document.querySelector('#p11-intro-container');
+const p11KeysContaineer = document.querySelector('#p11-keys-container');
+
+window.addEventListener('scroll', () => {
+
+  if (isInViewport(p11CenterContainer)) {
+
+    window.addEventListener('keydown', () => {
+
+      p11IntroContainer.classList.add('invisible');
+      p11KeysContaineer.classList.remove('invisible')
+      p11KeysContaineer.classList.add('visible');
+
+      if (p11KeysContaineer.classList.contains('visible')) {
+
+        document.addEventListener('keydown', function(e) {
+
+          if (e.key === ' ') {
+
+            document.getElementById('event-key-val').innerHTML = "Space"
+          } else {
+
+            document.getElementById('event-key-val').innerHTML = e.key;
+          }
+          document.getElementById('event-key-code-val').innerText = e.keyCode;
+          document.getElementById('event-code-val').textContent = e.code;
+        })
+      }
+    
+    });
+  } else {
+
+    p11IntroContainer.classList.remove('invisible');
+    p11IntroContainer.classList.add('visible');
+    p11KeysContaineer.classList.remove('visible')
+    p11KeysContaineer.classList.add('invisible');
+  }
+});
 
 
