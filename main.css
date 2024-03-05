@@ -435,5 +435,65 @@ form .maik-form-control {
 }
 
 /* Project 11 - Event Key Codes */
-#p11-intro-container {
+#p11-keys-container h3{
+  font-size: 14px;
 }
+
+/* Project 12 - FAQ Collapse */
+#p12-faqs-container .faq-card {
+  flex: 0.1;
+  background-color: white;
+  transition: 0.42s ease;
+}
+
+.faq-card .faq-card-text h3 {
+  font-size: 18px;
+}
+
+.faq-card .faq-card-text p {
+  font-size: 18px;
+  display: none;
+}
+
+.faq-card.cardActive::before,
+.faq-card.cardActive::after {
+  content: '\f075';
+  font-family: 'Font Awesome 5 Free';
+  color: #2ecc71;
+  font-size: 3rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+
+.faq-card.cardActive::before {
+  color: #3498db;
+  top: 0;
+  left: 42px;
+  transform: rotateY(180deg);
+}
+
+
+.faq-card-btn {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffc107;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #212529;
+  cursor: pointer;
+}
+
+.faq-card-btn.btnActive {
+  background-color: #0dcaf0;
+  color: white;
+}
+
+
+
+

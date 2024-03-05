@@ -540,4 +540,38 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Project 12
+const p12ToggleButtons = document.querySelectorAll('.faq-card-btn');
+
+let prevFaq;
+
+p12ToggleButtons.forEach(button => {
+
+  button.addEventListener('click', (e) => {
+
+    if (prevFaq) {
+
+      prevFaq.children[0].children[1].style.display = "none";
+      prevFaq.style.flex = "0.1";
+      prevFaq.children[1].classList.remove('btnActive');
+      prevFaq.children[1].innerHTML = "&#8629;"
+      prevFaq.style.flex = "0.1";
+      prevFaq.classList.remove('shadow');
+      prevFaq.classList.remove('cardActive');
+      
+    }
+
+    e.target.classList.add('btnActive');
+    e.target.innerHTML = "&#215;";
+    e.target.parentNode.style.flex = "0.2";
+    e.target.parentNode.classList.add('cardActive');
+    e.target.parentNode.classList.add('shadow');
+    e.target.parentNode.children[0].children[1].style.display = "block";
+    prevFaq = e.target.parentNode;
+    
+  })
+})
+
+
+
 
