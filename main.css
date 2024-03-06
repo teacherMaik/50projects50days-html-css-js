@@ -494,6 +494,25 @@ form .maik-form-control {
   color: white;
 }
 
+/* Project 13 - Random Choice Selector */
+#p13 textarea {
+  max-height: 25%;
+}
+
+.p13-tag {
+  background-color: white;
+  color: #212529;
+  border-radius: 42px;
+  padding: 10px 20px;
+  margin: 0 5px 10px 0;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.p13-tag.highlight {
+  background-color: #0dcaf0;
+  color: white;
+}
 
 
 

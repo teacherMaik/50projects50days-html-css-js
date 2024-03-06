@@ -572,6 +572,77 @@ p12ToggleButtons.forEach(button => {
   })
 })
 
+// Project 13
+const p13TextArea = document.getElementById('p13-choices');
+const p13TagsArea = document.getElementById('p13-tags');
+
+p13TextArea.focus();
+
+p13TextArea.addEventListener('keyup', (e) => {
+
+  let ltr = e.target.value;
+  p13CreateTag(ltr);
+
+  if (e.key === 'Enter') {
+    setTimeout(() => {
+      e.target.value = ''
+     }, 10);
+
+    p13RandomSelect();
+  }
+
+});
+
+function p13CreateTag(input) {
+
+  const tags = input.split(',').filter(tag => tag.trim()!== '').map(tag => tag.trim());
+    
+    p13TagsArea.innerHTML = '';
+
+    tags.forEach(tag => {
+        const tagEl = document.createElement('span');
+        tagEl.classList.add('p13-tag');
+        tagEl.innerText = tag;
+        p13TagsArea.appendChild(tagEl);
+    });
+};
+
+function p13RandomSelect () {
+
+  const times = 30
+  const interval = setInterval(() => {
+
+    const randomTag = p13PickRandomTag()
+    if (randomTag !== undefined) {
+      
+      randomTag.classList.add('highlight')
+
+      setTimeout(() => {
+        
+        randomTag.classList.remove('highlight')
+      }, 100)
+    }
+  }, 100);
+
+  setTimeout(() => {
+    
+    clearInterval(interval);
+    setTimeout(() => {
+
+      const randomTag = p13PickRandomTag();
+      randomTag.classList.add('highlight');
+      }, 100)
+    }, times * 100)
+};
+
+function p13PickRandomTag() {
+
+  let tags = document.querySelectorAll('.p13-tag');
+  console.log(tags[Math.floor(Math.random() * tags.length)]);
+  return tags[Math.floor(Math.random() * tags.length)];
+};
+
+
 
 
 
