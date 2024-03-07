@@ -642,6 +642,26 @@ function p13PickRandomTag() {
   return tags[Math.floor(Math.random() * tags.length)];
 };
 
+// Project 14
+const p14nav = document.getElementById('p14-nav');
+const p14toggle = document.getElementById('p14-toggle');
+
+p14toggle.addEventListener('click', function(e) {
+
+  
+  /* p14nav.classList.contains('p14-active') ? p14nav.classList.remove('p14-active') : p14nav.classList.add('p14-active'); */
+
+  if (p14nav.classList.contains('p14-active')) {
+
+    p14nav.classList.remove('p14-active');
+    p14nav.children[0].style.display = "none";
+  } else {
+    p14nav.classList.add('p14-active');
+    p14nav.children[0].style.display = "flex";
+  }
+
+});
+
 
 
 
