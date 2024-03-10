@@ -617,6 +617,51 @@ section#p14 {
   transform: rotate(765deg) translateY(-5.5px);
 }
 
+/* Project 15 - Incrementing Counters */
+#p15 h1 {
+  font-size: 84px;
+  color: white;
+}
+
+
+/* Project 16 */
+#p16-meassure {
+  border: 7px solid darkblue;
+  border-top: transparent;
+  border-bottom-left-radius: 42px;
+  border-bottom-right-radius: 42px;
+  overflow: hidden;
+}
+
+#p16 h2#p16-empty {
+  background-color: #f8f9fa;
+  color: #0dcaf0;
+  height: 100%;
+  transition: 0.3s ease;
+}
+
+#p16 h2#p16-full {
+  background-color: #0dcaf0;
+  color: white;
+  height: 0;
+  transition: 0.3s ease;
+  visibility: hidden;
+}
+
+#p16 .drink {
+  border: 3px solid darkblue;
+  border-top: transparent;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  color: darkblue;
+  align-self: center;
+  cursor: pointer
+}
+
+#p16 .drink.clicked {
+  background-color: #0dcaf0;
+  color: white;
+}
 
 
 

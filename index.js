@@ -662,7 +662,92 @@ p14toggle.addEventListener('click', function(e) {
 
 });
 
+/* Project 15 */
+const p15Socials = document.querySelector('#p15-instagram');
+const p15counters = document.querySelectorAll('.p15-counter');
+let p15Trigger = false;
+
+window.addEventListener('scroll', () => {
+
+  isInViewport(p15Socials) ? p15Trigger = true : p15Trigger = false;
+
+  if (p15Trigger) {
+
+    p15counters.forEach(counter => {
+      counter.innerHTML = "0";
+
+      const updateP15Count = () => {
+
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        const increment = target / 210;
+
+        if (count < target) {
+
+          counter.innerHTML = `${Math.ceil(count + increment)}`
+          setTimeout(updateP15Count, 1);
+        } else {
+          counter.innerHTML = target;
+        }
+      };
+
+      updateP15Count();
+    });
+  };
+});
+
+// Project 16
+const p16DrinksSmall = document.querySelectorAll('#p16 .drink');
+const p16SmallDrinksDiv = document.getElementById('p16-select-drinks');
+const p16BigEmpty = document.getElementById('p16-empty');
+const p16BigFull = document.getElementById('p16-full');
 
 
+p16DrinksSmall.forEach(drink => {
+
+  let toDo = '';
+
+  drink.addEventListener('click', (e) => {
+
+    console.log(drink);
+    console.log(drink.classList);
+    if (!drink.classList.contains('clicked')) {
+
+      drink.classList.remove('bg-light');
+      drink.classList.add('clicked');
+      updatep16Big('add');
+    } else if (drink.classList.contains('clicked')) {
+  
+      drink.classList.remove('clicked');
+      drink.classList.add('bg-light');
+      updatep16Big('reduce');
+    }
+  })
+})
+
+function updatep16Big(toDo) {
+
+  const tempClicked = document.querySelectorAll('#p16 .drink.clicked');
+
+  if (tempClicked.length <= 1) {
+    p16BigFull.style.visibility = hidden;
+    p16BigEmpty.innerHTML = `${(p16DrinksSmall / p16DrinksSmall) * 2}L<br>Remaining`;
+  }
+
+  if (toDo == 'add') {
+
+    console.log("trying to raise full height");
+    console.log(tempClicked.length);
+    p16BigFull.style.visibility = "visible";
+    p16BigFull.style.height = `${(tempClicked.length / 8) * 100}%`;
+  } else if (toDo == 'reduce') {
+
+  }
+
+}
+
+
+  
 
 
