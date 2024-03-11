@@ -638,6 +638,8 @@ section#p14 {
   color: #0dcaf0;
   height: 100%;
   transition: 0.3s ease;
+  text-align: center;
+  font-size: 21px;
 }
 
 #p16 h2#p16-full {

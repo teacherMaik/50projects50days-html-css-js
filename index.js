@@ -702,6 +702,8 @@ const p16DrinksSmall = document.querySelectorAll('#p16 .drink');
 const p16SmallDrinksDiv = document.getElementById('p16-select-drinks');
 const p16BigEmpty = document.getElementById('p16-empty');
 const p16BigFull = document.getElementById('p16-full');
+const p16HeaderGoal = document.querySelector('#p16-header, h4');
+let p16BigTotal = 2;
 
 
 p16DrinksSmall.forEach(drink => {
@@ -730,19 +732,39 @@ function updatep16Big(toDo) {
 
   const tempClicked = document.querySelectorAll('#p16 .drink.clicked');
 
-  if (tempClicked.length <= 1) {
-    p16BigFull.style.visibility = hidden;
-    p16BigEmpty.innerHTML = `${(p16DrinksSmall / p16DrinksSmall) * 2}L<br>Remaining`;
+  if (tempClicked.length == 0) {
+
+    p16BigFull.style.visibility = "hidden";
+    p16BigEmpty.innerHTML = "2L Remaining";
   }
 
   if (toDo == 'add') {
 
     console.log("trying to raise full height");
     console.log(tempClicked.length);
+
     p16BigFull.style.visibility = "visible";
-    p16BigFull.style.height = `${(tempClicked.length / 8) * 100}%`;
+    p16BigFull.style.height = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
+    p16BigFull.innerHTML = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
+
+    p16BigEmpty.style.height = `${100 - (tempClicked.length / p16DrinksSmall.length) * 100}%`;
+    p16BigEmpty.innerHTML = `${p16BigTotal -= 0.25}L Remaining`
+
+    
   } else if (toDo == 'reduce') {
 
+    p16BigFull.style.height = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
+    p16BigFull.innerHTML = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
+    p16BigEmpty.style.height = `${100 - (tempClicked.length / p16DrinksSmall.length) * 100}%`;
+    p16BigEmpty.innerHTML = `${p16BigTotal += 0.25}L Remaining`
+  }
+  
+  if (tempClicked.length == p16DrinksSmall.length) {
+
+    document.querySelector('#p16-header, h4').innerHTML = "Goal Achieved!";
+  } else {
+
+    document.querySelector('#p16-header, h4').innerHTML = "Goal: 2 litres a day";
   }
 
 }
