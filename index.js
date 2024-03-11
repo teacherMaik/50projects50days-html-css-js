@@ -46,7 +46,6 @@ const displayButtons = async (buttons) => {
   let i = 0
   while (i < buttons.length) {
 
-    console.log(i);
     buttons[i].classList.add('show');
     await sleep(42);
     i++;
@@ -58,7 +57,6 @@ const hideButtons = async (buttons)=> {
   let i = 0
   while (i < buttons.length) {
 
-    console.log(i);
     buttons[i].classList.remove('show');
     i++;
   }
@@ -66,8 +64,6 @@ const hideButtons = async (buttons)=> {
 
 menuButtons.forEach(button => {
   button.addEventListener('click', function(e) {
-
-    console.log(this.id);
 
     projectMenus.forEach(menu => {
       
@@ -80,7 +76,6 @@ menuButtons.forEach(button => {
     switch (this.id) {
 
       case 'p1-10':
-        console.log("case 1");
         projectMenus[0].classList.remove('invisible');
         projectMenus[0].classList.add('visible');
         displayButtons(firstTenButtons);
@@ -121,7 +116,6 @@ panes.forEach(pane => {
   pane.addEventListener('click', function(e) {
 
     panes.forEach(pane => {pane.classList.remove('show')});
-    console.log(this.id);
     if (this.classList.contains('show')) {
 
       return;
@@ -169,12 +163,8 @@ progressButtons.forEach(button => {
 
 function updateStep() {
 
-  console.log("enter update");
-  console.log(steps);
-
   steps.forEach((step, stepIndex) => {
 
-    console.log("stepIndex is " + stepIndex);
     if (stepIndex < progresStep) {
 
       step.classList.add('show');
@@ -185,16 +175,7 @@ function updateStep() {
 
     let shown = document.querySelectorAll('.show.progress-step');
 
-    console.log(progressLine.style.width);
-
-    console.log("Maths");
-    console.log(shown.length);
-    console.log(steps.length);
-    console.log("Maths");
-
     progressLine.style.width = (shown.length - 1) / (steps.length - 1) * 100 + '%';
-
-    console.log(progressLine.style.width);
 
     if (progresStep == 1) {
 
@@ -407,14 +388,12 @@ const p7LandingRight = document.querySelector('#p7 #landing-right');
 
 p7LandingLeft.addEventListener('mouseover', () => {
 
-  console.log("hovering left landing");
   p7LandingLeft.style.flex = "3";
   p7LandingRight.style.flex = "1";
 })
 
 p7LandingRight.addEventListener('mouseover', () => {
 
-  console.log("hovering right landing");
   p7LandingLeft.style.flex = "1";
   p7LandingRight.style.flex = "3";
 })
@@ -491,7 +470,6 @@ async function generateJoke() {
   }
 
   const res = await fetch('https://icanhazdadjoke.com', config)
-  console.log(res);
 
   const data = await res.json()
 
@@ -638,7 +616,6 @@ function p13RandomSelect () {
 function p13PickRandomTag() {
 
   let tags = document.querySelectorAll('.p13-tag');
-  console.log(tags[Math.floor(Math.random() * tags.length)]);
   return tags[Math.floor(Math.random() * tags.length)];
 };
 
@@ -712,8 +689,6 @@ p16DrinksSmall.forEach(drink => {
 
   drink.addEventListener('click', (e) => {
 
-    console.log(drink);
-    console.log(drink.classList);
     if (!drink.classList.contains('clicked')) {
 
       drink.classList.remove('bg-light');
@@ -740,9 +715,6 @@ function updatep16Big(toDo) {
 
   if (toDo == 'add') {
 
-    console.log("trying to raise full height");
-    console.log(tempClicked.length);
-
     p16BigFull.style.visibility = "visible";
     p16BigFull.style.height = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
     p16BigFull.innerHTML = `${(tempClicked.length / p16DrinksSmall.length) * 100}%`;
@@ -766,8 +738,17 @@ function updatep16Big(toDo) {
 
     document.querySelector('#p16-header, h4').innerHTML = "Goal: 2 litres a day";
   }
-
 }
+
+// Project 17
+const p17Section = document.getElementById('p17');
+
+function seep17Section() {
+
+  console.log(p17Section.getBoundingClientRect());
+}
+
+
 
 
   

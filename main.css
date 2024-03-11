@@ -665,6 +665,25 @@ section#p14 {
   color: white;
 }
 
+/* Project 17 - Movie App */
+#p17 #p16-center-container {
+
+}
+
+#p17-nav {
+  
+}
+
+#p17-nav form input {
+  border-style: initial;
+  border-radius: 42px;
+  border: 7px solid #ffc107;
+}
+
+#p17-nav form input:focus {
+  border-color: #dc3545;
+}
+
 
 
 
