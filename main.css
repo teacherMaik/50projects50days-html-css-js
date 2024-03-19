@@ -290,7 +290,7 @@ section #p3 {
 
 /* Project 5 - Blurry loading */
 #p5 .background-img {
-  background: url('/img/50-projects-img4.jpg') no-repeat center center/cover;
+  background: url('img/50-projects-img4.jpg') no-repeat center center/cover;
 
   /* Add the blur effect */
   filter: blur(14px);
