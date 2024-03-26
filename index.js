@@ -807,6 +807,40 @@ form.addEventListener('submit', (e) => {
     }
 })
 
+// Project 18
+const p18BackgroundSection = document.getElementById('p18');
+const p18Slides = document.querySelectorAll('.p18-slide');
+const p18BtnLeft = document.getElementById('p18-slider-left');
+const p18BtnRight = document.getElementById('p18-slider-right');
+let slideCount = 0;
+
+p18BtnLeft.addEventListener('click', () => {
+
+  if (slideCount == 0) {
+    return;
+  }
+  p18Slides[slideCount].classList.remove('active')
+  p18Slides[slideCount - 1].classList.add('active');
+  p18SetBackgroundImg(slideCount - 1);
+  slideCount--;
+});
+
+p18BtnRight.addEventListener('click', () => {
+
+  if (slideCount == 4) {
+    return;
+  }
+  p18Slides[slideCount].classList.remove('active');
+  p18Slides[slideCount + 1].classList.add('active');
+  p18SetBackgroundImg(slideCount + 1);
+  slideCount++;
+});
+p18SetBackgroundImg(0)
+
+function p18SetBackgroundImg(activeSlide) {
+
+  p18BackgroundSection.style.backgroundImage = p18Slides[activeSlide].style.backgroundImage;
+}
 
 
 

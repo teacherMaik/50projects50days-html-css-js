@@ -754,5 +754,73 @@ main#p17-movies {
   transform: translateY(0);
 }
 
+/* Project 18 */
+section#p18 {
+  height: 100vh;
+  width: 100%;
+  z-index: 0;
+  background-position: center center;
+  background-size: cover;
+  transition: 0.42s ease;
+}
+
+section#p18::before {
+  content: '';
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100vh;
+  z-index: 0;
+}
+
+.p18-slider-container {
+  position: relative;
+  width: 70vw;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.p18-slide {
+  position: absolute;
+  top: -15vh;
+  left: -15vw;
+  width: 100vw;
+  height: 100vh;
+  background-position: center center;
+  background-size: cover;
+  z-index: 2;
+  opacity: 0;
+}
+
+.p18-slide.active {
+  opacity: 1;
+}
+
+section#p18 button {
+  position: absolute;
+  width: 84px;
+  height: 84px;
+  border: 3px solid orange;
+  background-color: transparent;
+  color: white;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section#p18 button#p18-slider-left {
+  left: calc(15vw - 80px);
+}
+
+section#p18 button#p18-slider-right {
+  right: calc(15vw - 80px);
+}
+
+
+
+
+
 
 
