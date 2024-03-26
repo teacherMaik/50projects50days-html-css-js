@@ -554,7 +554,7 @@ p12ToggleButtons.forEach(button => {
 const p13TextArea = document.getElementById('p13-choices');
 const p13TagsArea = document.getElementById('p13-tags');
 
-p13TextArea.focus();
+//p13TextArea.focus();
 
 p13TextArea.addEventListener('keyup', (e) => {
 
