@@ -818,6 +818,122 @@ section#p18 button#p18-slider-right {
   right: calc(15vw - 80px);
 }
 
+/* Project 19 */
+section#p19 {
+  background-color: white;
+  
+}
+
+section#p19.dark {
+  background-color: black;
+  color: white;
+}
+
+section#p19 #p19-toggle-btn {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 14px;
+  border-radius: 42px;
+  cursor: pointer;
+}
+
+section#p19 #p19-toggle-btn.dark {
+  width: 100%;
+  background-color: white;
+  color: black;
+  padding: 14px;
+  border-radius: 42px;
+  cursor: pointer;
+}
+
+section#p19 #p19-clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+section#p19 #clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+section#p19 .needle {
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in linear;
+}
+
+section#p19 .needle#hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+section#p19 .needle#minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+
+section#p19 .needle#second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: #e74c3c;
+}
+
+section#p19 .center-point {
+  background-color: #e74c3c;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+section#p19 .center-point::after {
+  content: '';
+  background-color: black;
+  width: 7px;
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+#section#p19 #p19-time {
+  font-size: 60px;
+}
+
+#section#p19 #p19-date {
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+}
+
+#section#p19 #p19-date .circle {
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 18px;
+  transition: all 0.5s ease-in;
+  font-size: 12px;
+}
+
 
 
 
